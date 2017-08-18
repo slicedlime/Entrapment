@@ -87,7 +87,7 @@ function entrapment:control/togglefriendlyfire if @a[score_Op_min=1,score_Action
 function entrapment:control/togglespectators if @a[score_Op_min=1,score_Action_min=13,score_Action=13]
 
 # Realms special case:
-#scoreboard players set @a Op 2
+scoreboard players set @a Op 2
 
 # Op management
 
