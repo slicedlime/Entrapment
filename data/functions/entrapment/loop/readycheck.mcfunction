@@ -46,19 +46,21 @@ execute @e[type=armor_stand,name=Game,score_Ready=1,score_Ready_min=1,score_Tick
 
 # Title countdown
 execute @e[name=Game,score_Tick=20,score_Tick_min=20] ~ ~ ~ title @a subtitle [{"text":""}]
-execute @e[name=Game,score_Tick=100,score_Tick_min=100] ~ ~ ~ title @a title [{"text":"5"}]
-execute @e[name=Game,score_Tick=120,score_Tick_min=120] ~ ~ ~ title @a title [{"text":"4"}]
-execute @e[name=Game,score_Tick=140,score_Tick_min=140] ~ ~ ~ title @a title [{"text":"3"}]
-execute @e[name=Game,score_Tick=160,score_Tick_min=160] ~ ~ ~ title @a title [{"text":"2"}]
-execute @e[name=Game,score_Tick=180,score_Tick_min=180] ~ ~ ~ title @a title [{"text":"1"}]
-function entrapment:game/startgame if @e[name=Game,score_Tick=200,score_Tick_min=200]
+execute @e[name=Game,score_Tick=200,score_Tick_min=200] ~ ~ ~ title @a title [{"text":"20"}]
+execute @e[name=Game,score_Tick=400,score_Tick_min=400] ~ ~ ~ title @a title [{"text":"10"}]
+execute @e[name=Game,score_Tick=500,score_Tick_min=500] ~ ~ ~ title @a title [{"text":"5"}]
+execute @e[name=Game,score_Tick=520,score_Tick_min=520] ~ ~ ~ title @a title [{"text":"4"}]
+execute @e[name=Game,score_Tick=540,score_Tick_min=540] ~ ~ ~ title @a title [{"text":"3"}]
+execute @e[name=Game,score_Tick=560,score_Tick_min=560] ~ ~ ~ title @a title [{"text":"2"}]
+execute @e[name=Game,score_Tick=580,score_Tick_min=580] ~ ~ ~ title @a title [{"text":"1"}]
+function entrapment:game/startgame if @e[name=Game,score_Tick=600,score_Tick_min=600]
 
 # Countdown sounds
-execute @e[name=Game,score_Tick=100,score_Tick_min=100] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:block.note.hat master @s
-execute @e[name=Game,score_Tick=120,score_Tick_min=120] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:block.note.hat master @s
-execute @e[name=Game,score_Tick=140,score_Tick_min=140] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:block.note.hat master @s
-execute @e[name=Game,score_Tick=160,score_Tick_min=160] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:block.note.hat master @s
-execute @e[name=Game,score_Tick=180,score_Tick_min=180] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:block.note.hat master @s
+execute @e[name=Game,score_Tick=500,score_Tick_min=500] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:block.note.hat master @s
+execute @e[name=Game,score_Tick=520,score_Tick_min=520] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:block.note.hat master @s
+execute @e[name=Game,score_Tick=540,score_Tick_min=540] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:block.note.hat master @s
+execute @e[name=Game,score_Tick=560,score_Tick_min=560] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:block.note.hat master @s
+execute @e[name=Game,score_Tick=580,score_Tick_min=580] ~ ~ ~ execute @a ~ ~ ~ playsound minecraft:block.note.hat master @s
 
 # Player control
 scoreboard players tag @a[team=!none] remove Starting

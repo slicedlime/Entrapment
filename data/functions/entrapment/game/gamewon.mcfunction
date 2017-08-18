@@ -1,9 +1,9 @@
 # Win messages
-execute @e[type=armor_stand,name=JoinRed,score_Count_min=1] ~ ~ ~ title @a subtitle [{"text":"Team Redstone wins!","color":"red"}]
-execute @e[type=armor_stand,name=JoinBlue,score_Count_min=1] ~ ~ ~ title @a subtitle [{"text":"Team Lapis wins!","color":"blue"}]
+execute @e[type=armor_stand,name=JoinRed,score_Count_min=1] ~ ~ ~ title @a subtitle [{"text":"Cool Boys wins!","color":"red"}]
+execute @e[type=armor_stand,name=JoinBlue,score_Count_min=1] ~ ~ ~ title @a subtitle [{"text":"Leafless Clovers wins!","color":"blue"}]
 title @a title [{"text":"Game Over"}]
-execute @e[type=armor_stand,name=JoinRed,score_Count_min=1] ~ ~ ~ tellraw @a [{"text":"Team Redstone wins!","color":"red"}]
-execute @e[type=armor_stand,name=JoinBlue,score_Count_min=1] ~ ~ ~ tellraw @a [{"text":"Team Lapis wins!","color":"blue"}]
+execute @e[type=armor_stand,name=JoinRed,score_Count_min=1] ~ ~ ~ tellraw @a [{"text":"Cool Boys wins!","color":"red"}]
+execute @e[type=armor_stand,name=JoinBlue,score_Count_min=1] ~ ~ ~ tellraw @a [{"text":"Leafless Clovers wins!","color":"blue"}]
 
 execute @e[type=armor_stand,name=JoinRed,score_Count_min=1] ~ ~ ~ scoreboard players add @a[team=red] Wins 1
 execute @e[type=armor_stand,name=JoinBlue,score_Count_min=1] ~ ~ ~ scoreboard players add @a[team=blue] Wins 1

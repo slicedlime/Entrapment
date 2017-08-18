@@ -5,19 +5,21 @@ function entrapment:loop/allmodes
 tp @e[type=armor_stand,name=JoinBlue] -13 251 130
 tp @e[type=armor_stand,name=JoinRed] 13 251 130
 
-# Team joining - particles
-execute @e[type=armor_stand,name=JoinBlue] ~ ~ ~ particle magicCrit ~ ~1 ~ 1 1 1 0 5 force
-execute @e[type=armor_stand,name=JoinRed] ~ ~ ~ particle crit ~ ~1 ~ 1 1 1 0 5 force
-execute @e[type=armor_stand,name=JoinNone] ~ ~ ~ particle mobSpellAmbient ~ ~1 ~ 1 1 1 0 5 force
-# Team joining - leave teams
-execute @e[type=armor_stand,name=JoinBlue] ~ ~ ~ scoreboard teams leave @p[r=4,team=!blue]
-execute @e[type=armor_stand,name=JoinRed] ~ ~ ~ scoreboard teams leave @p[r=4,team=!red]
-execute @e[type=armor_stand,name=JoinNone] ~ ~ ~ scoreboard teams leave @p[r=4,team=!none]
+scoreboard players tag coolstoolguy_YT add JoinRed
+scoreboard players tag JochCool add JoinRed
+scoreboard players tag dogfaceboy add JoinRed
+scoreboard players tag Mr_SoUndSo add JoinRed
+
+scoreboard players tag HamsterBlocks add JoinBlue
+scoreboard players tag LoonyPup add JoinBlue
+scoreboard players tag lifeofchrome add JoinBlue
+scoreboard players tag logicalpencils add JoinBlue
+
 # Join messages
-execute @e[type=armor_stand,name=JoinRed] ~ ~ ~ execute @p[r=4,team=!red] ~ ~ ~ tellraw @a [{"selector":"@p[r=4,team=!red]","color":"red"},{"text":" has joined team ","color":"white"},{"text":"Redstone!","color":"red"}]
-execute @e[type=armor_stand,name=JoinBlue] ~ ~ ~ execute @p[r=4,team=!blue] ~ ~ ~ tellraw @a [{"selector":"@p[r=4,team=!blue]","color":"blue"},{"text":" has joined team ","color":"white"},{"text":"Lapis!","color":"blue"}]
-execute @e[type=armor_stand,name=JoinRed] ~ ~ ~ scoreboard teams join red @p[r=4,team=!red]
-execute @e[type=armor_stand,name=JoinBlue] ~ ~ ~ scoreboard teams join blue @p[r=4,team=!blue]
+execute @p[tag=JoinRed,team=!red] ~ ~ ~ tellraw @a [{"selector":"@p[tag=JoinRed,team=!red]","color":"red"},{"text":" has joined ","color":"white"},{"text":"Cool Boys!","color":"red"}]
+execute @p[tag=JoinBlue,team=!blue] ~ ~ ~ tellraw @a [{"selector":"@p[tag=JoinBlue,team=!blue]","color":"blue"},{"text":" has joined ","color":"white"},{"text":"Leafless Clovers!","color":"blue"}]
+scoreboard teams join red @p[tag=JoinRed,team=!red]
+scoreboard teams join blue @p[tag=JoinBlue,team=!blue]
 
 # Player states
 
@@ -109,5 +111,5 @@ scoreboard players set @a[x=-14,y=251,z=125,dx=32,dy=4,dz=11] InLobby 1
 tp @a[m=adventure,score_InLobby=0,score_HelpPos=0] 0 251 117 0 0
 
 # Keep tutorial location loaded
-summon area_effect_cloud 1008 10 10 {Tags:["ChunkLoader"],Duration:3}
-spreadplayers -1020 8 1 2 @e[tag=ChunkLoader]
+#execute @p ~ ~ ~ summon area_effect_cloud 1008 10 10 {Tags:["ChunkLoader"],Duration:3}
+#execute @p ~ ~ ~ spreadplayers -1020 8 1 2 @e[tag=ChunkLoader]
