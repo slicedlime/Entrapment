@@ -67,9 +67,13 @@ effect @a[m=0,score_OutOfMap_min=100] wither 1 2
 
 # Confine spectators
 execute @e[type=armor_stand,name=Game,score_Round=1,score_SpectatorLock_min=1] ~ ~ ~ tp @a[m=spectator,team=red,score_InArena=0] -40 236 -8 0 0
-execute @e[type=armor_stand,name=Game,score_Round=2,score_SpectatorLock_min=1] ~ ~ ~ tp @a[m=spectator,team=blue,score_InArena=0] -40 236 -8 0 0
-execute @e[type=armor_stand,name=Game,score_Round=2,score_SpectatorLock_min=1] ~ ~ ~ tp @a[m=spectator,team=red,score_InArena=0] 40 236 -8 0 0
+execute @e[type=armor_stand,name=Game,score_Round_min=2,score_SpectatorLock_min=1] ~ ~ ~ tp @a[m=spectator,team=blue,score_InArena=0] -40 236 -8 0 0
+execute @e[type=armor_stand,name=Game,score_Round_min=2,score_SpectatorLock_min=1] ~ ~ ~ tp @a[m=spectator,team=red,score_InArena=0] 40 236 -8 0 0
 execute @e[type=armor_stand,name=Game,score_Round=1,score_SpectatorLock_min=1] ~ ~ ~ tp @a[m=spectator,team=blue,score_InArena=0] 40 236 -8 0 0
+execute @e[type=armor_stand,name=Game,score_Round=1,score_SpectatorLock_min=1] 20 0 -10 tp @a[team=red,m=spectator,dx=42,dy=500,dz=110] -40 236 -8 0 0
+execute @e[type=armor_stand,name=Game,score_Round_min=2,score_SpectatorLock_min=1] 20 0 -10 tp @a[team=blue,m=spectator,dx=42,dy=500,dz=110] -40 236 -8 0 0
+execute @e[type=armor_stand,name=Game,score_Round=1,score_SpectatorLock_min=1] -60 0 -10 tp @a[team=blue,m=spectator,dx=42,dy=500,dz=110] 40 236 -8 0 0
+execute @e[type=armor_stand,name=Game,score_Round_min=2,score_SpectatorLock_min=1] -60 0 -10 tp @a[team=red,m=spectator,dx=42,dy=500,dz=110] 40 236 -8 0 0
 
 # Tp players in wrong arena (reconnects)
 execute @e[type=armor_stand,name=Game,score_Round=1] 20 220 -10 tp @a[team=red,m=survival,dx=42,dy=40,dz=110] -40 236 -8 0 0
@@ -147,3 +151,8 @@ fill 20 242 -1 60 255 -1 air
 fill -20 242 -1 -60 255 -1 air
 fill 20 242 97 60 255 97 air
 fill -20 242 97 -60 255 97 air
+
+scoreboard players operation Time Info = Time Time
+scoreboard players operation SpawnSafety Info = SpawnSafety Time
+scoreboard players reset @a[team=!none,m=spectator] Info
+execute @a[m=survival] ~ ~ ~ scoreboard players operation @s Info = @s Health
