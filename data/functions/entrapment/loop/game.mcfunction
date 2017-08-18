@@ -70,10 +70,6 @@ execute @e[type=armor_stand,name=Game,score_Round=1,score_SpectatorLock_min=1] ~
 execute @e[type=armor_stand,name=Game,score_Round=2,score_SpectatorLock_min=1] ~ ~ ~ tp @a[m=spectator,team=blue,score_InArena=0] -40 236 -8 0 0
 execute @e[type=armor_stand,name=Game,score_Round=2,score_SpectatorLock_min=1] ~ ~ ~ tp @a[m=spectator,team=red,score_InArena=0] 40 236 -8 0 0
 execute @e[type=armor_stand,name=Game,score_Round=1,score_SpectatorLock_min=1] ~ ~ ~ tp @a[m=spectator,team=blue,score_InArena=0] 40 236 -8 0 0
-execute @e[type=armor_stand,name=Game,score_Round=1,score_SpectatorLock_min=1] 20 0 -10 tp @a[team=red,m=spectator,dx=42,dy=500,dz=110] -40 236 -8 0 0
-execute @e[type=armor_stand,name=Game,score_Round_min=2,score_SpectatorLock_min=1] 20 0 -10 tp @a[team=blue,m=spectator,dx=42,dy=500,dz=110] -40 236 -8 0 0
-execute @e[type=armor_stand,name=Game,score_Round=1,score_SpectatorLock_min=1] -60 0 -10 tp @a[team=blue,m=spectator,dx=42,dy=500,dz=110] 40 236 -8 0 0
-execute @e[type=armor_stand,name=Game,score_Round_min=2,score_SpectatorLock_min=1] -60 0 -10 tp @a[team=red,m=spectator,dx=42,dy=500,dz=110] 40 236 -8 0 0
 
 # Tp players in wrong arena (reconnects)
 execute @e[type=armor_stand,name=Game,score_Round=1] 20 220 -10 tp @a[team=red,m=survival,dx=42,dy=40,dz=110] -40 236 -8 0 0
@@ -124,18 +120,30 @@ execute @e[type=armor_stand,name=Game,score_DangerTime_min=0,score_DangerTime=0]
 # Barrier between arenas
 kill @e[type=!Player,x=-15,y=0,z=0,dx=10,dy=500,dz=100]
 kill @e[type=!Player,x=5,y=0,z=0,dx=10,dy=500,dz=100]
+kill @a[m=survival,x=-15,y=0,z=0,dx=10,dy=500,dz=100]
+kill @a[m=survival,x=5,y=0,z=0,dx=10,dy=500,dz=100]
 
 # Get rid of totems of undying
 scoreboard players tag @e[type=item] add Totem {Item:{id:"minecraft:totem_of_undying"}}
 kill @e[type=item,tag=Totem]
 clear @a totem_of_undying
 
-# Fix players carrying the ready check items in the crafting table into the game
-clear @a leather_helmet -1 -1 {display:{Name:"Ready",color:49152}}
-clear @a leather_helmet -1 -1 {display:{Name:"Not Ready",color:2105376}}
-
 # Count remaining players
 scoreboard players set @e[type=armor_stand,score_Team_min=1] Count 0
 execute @a[team=blue,m=survival] ~ ~ ~ scoreboard players add @e[type=armor_stand,name=JoinBlue] Count 1
 execute @a[team=red,m=survival] ~ ~ ~ scoreboard players add @e[type=armor_stand,name=JoinRed] Count 1
 function entrapment:game/gamewon if @e[type=armor_stand,score_Team_min=1,score_Count=0]
+
+# Protect lobby, outside of arenas
+
+kill @e[type=!player,x=-70,y=0,z=100,dx=140,dy=512,dz=10]
+kill @a[m=survival,x=-70,y=0,z=100,dx=140,dy=512,dz=10]
+
+fill 19 220 96 19 255 0 air
+fill -19 220 96 -19 255 0 air
+fill 61 220 96 61 255 0 air
+fill -61 220 96 -61 255 0 air
+fill 20 242 -1 60 255 -1 air
+fill -20 242 -1 -60 255 -1 air
+fill 20 242 97 60 255 97 air
+fill -20 242 97 -60 255 97 air

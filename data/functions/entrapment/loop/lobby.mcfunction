@@ -26,7 +26,7 @@ gamemode adventure @a[m=survival]
 gamemode adventure @a[m=spectator]
 
 # Clear inventories
-clear @a[m=adventure,score_HelpPos=0]
+clear @a[m=adventure]
 
 # Reset player state
 effect @a instant_health 3 1 true
