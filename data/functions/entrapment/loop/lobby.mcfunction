@@ -109,5 +109,5 @@ scoreboard players set @a[x=-14,y=251,z=125,dx=32,dy=4,dz=11] InLobby 1
 tp @a[m=adventure,score_InLobby=0,score_HelpPos=0] 0 251 117 0 0
 
 # Keep tutorial location loaded
-summon area_effect_cloud 1008 10 10 {Tags:["ChunkLoader"],Duration:3}
-spreadplayers -1020 8 1 2 @e[tag=ChunkLoader]
+#execute @p ~ ~ ~ summon area_effect_cloud 1008 10 10 {Tags:["ChunkLoader"],Duration:3}
+#execute @p ~ ~ ~ spreadplayers -1020 8 1 2 @e[tag=ChunkLoader]
