@@ -5,7 +5,6 @@ gamerule gameLoopFunction entrapment:loop/lobby
 # Clear scores
 scoreboard players reset * ReadyCheck
 scoreboard objectives setdisplay sidebar
-scoreboard objectives setdisplay list Wins
 scoreboard players reset * Tick
 
 # Set environment
@@ -22,3 +21,5 @@ clear @a
 # Turn off collisions
 scoreboard teams option blue collisionRule never
 scoreboard teams option red collisionRule never
+
+scoreboard objectives setdisplay list Wins

@@ -1,13 +1,14 @@
+say starting game
+
 # Set the game into running state
 scoreboard players set @e[type=armor_stand,name=Game] State 2
 gamerule gameLoopFunction entrapment:loop/game
 
-scoreboard players reset * ReadyCheck
+scoreboard players reset * ReadyCheck
 
 # Show in-game UI stuff
 title @a title [{"text":"Game starting!"}]
 scoreboard objectives setdisplay sidebar Time
-scoreboard objectives setdisplay list Health
 
 # Set up score tracking
 scoreboard players set @e[type=armor_stand,name=Game] Round 0
@@ -49,3 +50,5 @@ execute @e[type=armor_stand,name=Game,score_FriendlyFire_min=1] ~ ~ ~ scoreboard
 function entrapment:game/newround
 
 recipe give @a *
+
+scoreboard objectives setdisplay list Health

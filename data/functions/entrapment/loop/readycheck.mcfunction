@@ -79,5 +79,5 @@ clear @a[team=!none,tag=Starting]
 effect @a instant_health 3 1 true
 effect @a[m=2] weakness 2 255 true
 
-scoreboard players tag @e[type=item] add Helmet {Item:{id:"minecraft:leather_helmet"}}
+scoreboard players tag @e[type=item] add Helmet  {Item:{id:"minecraft:leather_helmet"}}
 kill @e[type=item,tag=Helmet]
