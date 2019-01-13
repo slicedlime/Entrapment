@@ -1,3 +1,29 @@
+# Set air to all the redstone block locations
+execute if score $Game Tick matches 1 run setblock -59 222 1 air
+execute if score $Game Tick matches 1 run setblock 21 222 1 air
+execute if score $Game Tick matches 1 run setblock -27 222 1 air
+execute if score $Game Tick matches 1 run setblock 53 222 1 air
+execute if score $Game Tick matches 1 run setblock -59 222 33 air
+execute if score $Game Tick matches 1 run setblock 21 222 33 air
+execute if score $Game Tick matches 1 run setblock -27 222 1 air
+execute if score $Game Tick matches 1 run setblock 53 222 33 air
+execute if score $Game Tick matches 1 run setblock -59 222 65 air
+execute if score $Game Tick matches 1 run setblock 21 222 65 air
+execute if score $Game Tick matches 1 run setblock -27 222 65 air
+execute if score $Game Tick matches 1 run setblock 53 222 65 air
+execute if score $Game Tick matches 1 run setblock -59 254 1 air
+execute if score $Game Tick matches 1 run setblock 21 254 1 air
+execute if score $Game Tick matches 1 run setblock -27 254 1 air
+execute if score $Game Tick matches 1 run setblock 53 254 1 air
+execute if score $Game Tick matches 1 run setblock -59 254 33 air
+execute if score $Game Tick matches 1 run setblock 21 254 33 air
+execute if score $Game Tick matches 1 run setblock -27 254 33 air
+execute if score $Game Tick matches 1 run setblock 53 254 33 air
+execute if score $Game Tick matches 1 run setblock -59 254 65 air
+execute if score $Game Tick matches 1 run setblock 21 254 65 air
+execute if score $Game Tick matches 1 run setblock -27 254 65 air
+execute if score $Game Tick matches 1 run setblock 53 254 65 air
+
 # Clone 0 0 0 structure block
 execute if score $Game Tick matches 1 at @e[type=armor_stand,scores={Arena=1..,Selected=1..}] run clone ~1 ~-1 ~ ~1 ~-1 ~ -59 223 1 replace
 execute if score $Game Tick matches 1 run setblock -59 222 1 redstone_block
@@ -92,3 +118,4 @@ execute if score $Game Tick matches 67 run setblock -27 254 65 redstone_block
 execute if score $Game Tick matches 70 at @e[type=armor_stand,scores={Arena=1..,Selected=1..}] run clone ~2 ~ ~2 ~2 ~ ~2 53 255 65 replace
 execute if score $Game Tick matches 70 run setblock 53 254 65 redstone_block
 
+kill @e[type=minecraft:item]

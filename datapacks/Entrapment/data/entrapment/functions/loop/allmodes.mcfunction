@@ -32,6 +32,7 @@ scoreboard players set @e[type=armor_stand,name=JoinBlue] Team 2
 execute if score @e[type=armor_stand,name=Game,limit=1] State matches 0 run function entrapment:loop/lobby
 execute if score @e[type=armor_stand,name=Game,limit=1] State matches 1 run function entrapment:loop/readycheck
 execute if score @e[type=armor_stand,name=Game,limit=1] State matches 2 run function entrapment:loop/countdown
+execute if score @e[type=armor_stand,name=Game,limit=1] State matches 3 run function entrapment:loop/game
 
 # Debug mode
 execute if entity @a[name=slicedlime,gamemode=creative] run gamerule sendCommandFeedback true
