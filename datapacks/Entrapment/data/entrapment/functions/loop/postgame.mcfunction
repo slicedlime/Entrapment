@@ -1,6 +1,8 @@
-gamemode adventure @a[m=survival]
-gamemode adventure @a[m=spectator]
+# Countdown state
+gamemode adventure @a[gamemode=survival]
+gamemode adventure @a[gamemode=spectator]
 
 scoreboard players remove @e[type=armor_stand,name=Game] ResetTime 1
-function entrapment:lobby/enterlobby if @e[type=armor_stand,name=Game,score_ResetTime=0]
-execute @e[type=armor_stand,name=Game,score_ResetTime=0] ~ ~ ~ blockdata 1077 0 0 {auto:1}
+execute if score @e[type=armor_stand,name=Game,limit=1] ResetTime matches 0 run function entrapment:lobby/enterlobby
+
+scoreboard players set $Game Tick 0

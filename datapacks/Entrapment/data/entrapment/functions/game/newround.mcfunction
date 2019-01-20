@@ -32,6 +32,8 @@ summon armor_stand 60 255 0 {CustomName:"\"NewPTChest\"",Invisible:1}
 scoreboard players reset @e[type=armor_stand,name=Treasure] Selected
 scoreboard players reset @e[type=armor_stand,name=TreasureCD] Selected
 scoreboard players set @e[type=armor_stand,name=Treasure,sort=random,limit=1] Selected 1
+scoreboard players operation @e[type=armor_stand,name=NewNTChest] TreasureSpawn = @e[type=armor_stand,name=Treasure,scores={Selected=1}] TreasureBinding
+scoreboard players operation @e[type=armor_stand,name=NewPTChest] TreasureSpawn = @e[type=armor_stand,name=Treasure,scores={Selected=1}] TreasureBinding
 
 # Danger time
 execute if score Remaining SafeRounds matches ..0 run scoreboard players operation Time DangerTime += @e[type=armor_stand,name=Game,limit=1] DangerTimeInc

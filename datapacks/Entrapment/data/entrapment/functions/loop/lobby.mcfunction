@@ -1,5 +1,8 @@
 # Function for the lobby state game loop
 
+scoreboard players add $Game Tick 1
+function entrapment:loop/loadarena
+
 tp @e[type=armor_stand,name=JoinBlue] -13 251 130
 tp @e[type=armor_stand,name=JoinRed] 13 251 130
 
