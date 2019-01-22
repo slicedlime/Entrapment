@@ -37,4 +37,11 @@ execute if score @e[type=armor_stand,name=Game,limit=1] State matches 4 run func
 
 # Debug mode
 execute if entity @a[name=slicedlime,gamemode=creative] run gamerule sendCommandFeedback true
-execute unless entity @a[name=slicedlime,gamemode=creative] run gamerule sendCommandFeedback false
+#execute unless entity @a[name=slicedlime,gamemode=creative] run gamerule sendCommandFeedback false
+
+# Edit mode
+scoreboard players enable @a[gamemode=creative] Editor
+execute if score @a[limit=1] Editor matches 1 run function entrapment:admin/editorloadarena
+execute if score @a[limit=1] Editor matches 2 run function entrapment:admin/editorsavearena
+execute if score @a[limit=1] Editor matches 3 run function entrapment:admin/editorremoveentities
+execute if score @a[limit=1] Editor matches 4 run function entrapment:admin/editorloadblank
