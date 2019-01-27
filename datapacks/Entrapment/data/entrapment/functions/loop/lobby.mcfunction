@@ -109,3 +109,6 @@ scoreboard players set @a InLobby 0
 scoreboard players set @a[x=-4,y=251,z=116,dx=9,dy=4,dz=30] InLobby 1
 scoreboard players set @a[x=-14,y=251,z=125,dx=32,dy=4,dz=11] InLobby 1
 teleport @a[gamemode=adventure,scores={InLobby=0,HelpPos=0}] 0 251 117 0 0
+
+# Silence item frames
+execute as @e[type=item_frame] run data merge entity @s {Silent:1}

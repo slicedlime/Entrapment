@@ -13,7 +13,8 @@ team leave *
 tp @a 0 251 117 0 0
 kill @e[type=!player,x=-60,y=220,z=-10,dx=40,dy=35,dz=106]
 kill @e[type=!player,x=20,y=220,z=-10,dx=40,dy=35,dz=106]
-execute as @e[type=armor_stand,name=TreasureCD] run data merge entity @s {CustomName:"\"Treasure\""}
+execute as @e[type=armor_stand,tag=TreasureCD] run tag @s add Treasure
+execute as @e[type=armor_stand,tag=TreasureCD] run tag @s remove TreasureCD
 scoreboard players set @e[type=armor_stand,name=Game] ResetTime 80
 kill @e[name=NewNTChest]
 kill @e[name=NewPTChest]

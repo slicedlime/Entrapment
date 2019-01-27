@@ -40,7 +40,8 @@ spreadplayers -40 47 1 46 false @e[type=armor_stand,name=NewNTChest,nbt={OnGroun
 spreadplayers 40 47 1 46 false @e[type=armor_stand,name=NewPTChest,nbt={OnGround:1b}]
 
 # See if we've used all the treasure items. '
-execute unless entity @e[type=armor_stand,name=Treasure] as @e[type=armor_stand,name=TreasureCD] run data merge entity @s {CustomName:"\"Treasure\""}
+execute unless entity @e[type=armor_stand,tag=Treasure] as @e[type=armor_stand,tag=TreasureCD] run tag @s add Treasure
+execute as @e[type=armor_stand,tag=Treasure,tag=TreasureCD] run tag @s remove TreasureCD
 
 # Particle beacons
 execute at @e[type=armor_stand,name=OldTChest] run particle firework ~ ~11 ~ 0 3 0 0 2 force
