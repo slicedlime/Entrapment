@@ -161,4 +161,4 @@ scoreboard players reset @a[team=!none,gamemode=spectator] Info
 execute as @a[gamemode=survival] run scoreboard players operation @s Info = @s Health
 
 # Remove ready check helmets
-clear @a minecraft:leather_helmet{display:{Name:"\"Ready\""}}}
+clear @a minecraft:leather_helmet{display:{Name:"\"Ready\""}}
