@@ -37,7 +37,7 @@ scoreboard players operation @e[type=armor_stand,name=NewPTChest] TreasureSpawn 
 tag @e[type=armor_stand,tag=Treasure,scores={Selected=1}] add TreasureCD
 tag @e[type=armor_stand,tag=Treasure,scores={Selected=1}] remove Treasure
 
-tellraw @a[team=none] [{"text":"Chest for this round: "},{"selector":"@e[type=armor_stand,tag=Treasure,scores={Selected=1}]"}]
+tellraw @a[team=none] [{"text":"Chest for this round: "},{"selector":"@e[type=armor_stand,tag=TreasureCD,scores={Selected=1}]"}]
 
 # Danger time
 scoreboard players remove Remaining SafeRounds 1
