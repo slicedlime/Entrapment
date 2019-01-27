@@ -18,11 +18,11 @@ scoreboard players operation Time Time = Seconds Tick
 execute if score @e[type=armor_stand,name=Game,limit=1] Tick matches 1 run function entrapment:game/newround
 
 # Countdown sounds
-execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 99 as @a at @s run playsound minecraft:note_block.hat master @s ~ ~ ~
-execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 79 as @a at @s run playsound minecraft:note_block.hat master @s ~ ~ ~
-execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 59 as @a at @s run playsound minecraft:note_block.hat master @s ~ ~ ~
-execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 39 as @a at @s run playsound minecraft:note_block.hat master @s ~ ~ ~
-execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 19 as @a at @s run playsound minecraft:note_block.hat master @s ~ ~ ~
+execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 99 as @a at @s run playsound minecraft:block.note_block.hat master @s ~ ~ ~
+execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 79 as @a at @s run playsound minecraft:block.note_block.hat master @s ~ ~ ~
+execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 59 as @a at @s run playsound minecraft:block.note_block.hat master @s ~ ~ ~
+execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 39 as @a at @s run playsound minecraft:block.note_block.hat master @s ~ ~ ~
+execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 19 as @a at @s run playsound minecraft:block.note_block.hat master @s ~ ~ ~
 
 # Display round counter on action bar
 title @a actionbar [{"text":"Round "},{"score":{"objective":"Round","name":"Total"}}]
@@ -161,4 +161,4 @@ scoreboard players reset @a[team=!none,gamemode=spectator] Info
 execute as @a[gamemode=survival] run scoreboard players operation @s Info = @s Health
 
 # Remove ready check helmets
-clear @a minecraft:leather_helmet{display:{Name:"\"Ready\""}}
+clear @a minecraft:leather_helmet{display:{Name:"\"Ready\""}}}
