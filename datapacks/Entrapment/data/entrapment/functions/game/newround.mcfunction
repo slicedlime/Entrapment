@@ -34,10 +34,10 @@ scoreboard players reset @e[type=armor_stand,tag=TreasureCD] Selected
 scoreboard players set @e[type=armor_stand,tag=Treasure,sort=random,limit=1] Selected 1
 scoreboard players operation @e[type=armor_stand,name=NewNTChest] TreasureSpawn = @e[type=armor_stand,tag=Treasure,scores={Selected=1}] TreasureBinding
 scoreboard players operation @e[type=armor_stand,name=NewPTChest] TreasureSpawn = @e[type=armor_stand,tag=Treasure,scores={Selected=1}] TreasureBinding
-tag @e[type=armor_stand,tag=Treasure,score={Selected=1}] add TreasureCD
-tag @e[type=armor_stand,tag=Treasure,score={Selected=1}] remove Treasure
+tag @e[type=armor_stand,tag=Treasure,scores={Selected=1}] add TreasureCD
+tag @e[type=armor_stand,tag=Treasure,scores={Selected=1}] remove Treasure
 
-tellraw @a[team=none] [{"text":"Chest for this round: "},{"selector":"@e[type=armor_stand,tag=Treasure,score={Selected=1}]"}]
+tellraw @a[team=none] [{"text":"Chest for this round: "},{"selector":"@e[type=armor_stand,tag=Treasure,scores={Selected=1}]"}]
 
 # Danger time
 scoreboard players remove Remaining SafeRounds 1
