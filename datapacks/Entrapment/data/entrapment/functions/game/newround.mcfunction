@@ -36,9 +36,10 @@ scoreboard players operation @e[type=armor_stand,name=NewNTChest] TreasureSpawn 
 scoreboard players operation @e[type=armor_stand,name=NewPTChest] TreasureSpawn = @e[type=armor_stand,name=Treasure,scores={Selected=1}] TreasureBinding
 
 # Danger time
+scoreboard players remove Remaining SafeRounds 1
 execute if score Remaining SafeRounds matches ..0 run scoreboard players operation Time DangerTime += @e[type=armor_stand,name=Game,limit=1] DangerTimeInc
-
 scoreboard players operation @e[type=armor_stand,name=Game] DangerTime = @e[type=armor_stand,name=Game] Tick
+
 scoreboard players operation Ticks DangerTime = Time DangerTime
 scoreboard players operation Ticks DangerTime *= 20 Const
 scoreboard players operation @e[type=armor_stand,name=Game] DangerTime -= Ticks DangerTime
