@@ -18,11 +18,11 @@ scoreboard players operation Time Time = Seconds Tick
 execute if score @e[type=armor_stand,name=Game,limit=1] Tick matches 1 run function entrapment:game/newround
 
 # Countdown sounds
-execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 99 as @a at @s run playsound minecraft:block.note.hat master @s ~ ~ ~
-execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 79 as @a at @s run playsound minecraft:block.note.hat master @s ~ ~ ~
-execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 59 as @a at @s run playsound minecraft:block.note.hat master @s ~ ~ ~
-execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 39 as @a at @s run playsound minecraft:block.note.hat master @s ~ ~ ~
-execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 19 as @a at @s run playsound minecraft:block.note.hat master @s ~ ~ ~
+execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 99 as @a at @s run playsound minecraft:note_block.hat master @s ~ ~ ~
+execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 79 as @a at @s run playsound minecraft:note_block.hat master @s ~ ~ ~
+execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 59 as @a at @s run playsound minecraft:note_block.hat master @s ~ ~ ~
+execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 39 as @a at @s run playsound minecraft:note_block.hat master @s ~ ~ ~
+execute if score @e[name=Game,type=armor_stand,limit=1] Tick matches 19 as @a at @s run playsound minecraft:note_block.hat master @s ~ ~ ~
 
 # Display round counter on action bar
 title @a actionbar [{"text":"Round "},{"score":{"objective":"Round","name":"Total"}}]
@@ -33,10 +33,11 @@ kill @e[type=minecraft:item,x=-48,y=230,z=-3,dx=96,dy=15,dz=6,nbt={Item:{id:"min
 kill @e[type=minecraft:item,x=-48,y=230,z=-3,dx=96,dy=15,dz=6,nbt={Item:{id:"minecraft:prismarine_crystals"}}]
 
 # Chests
-spreadplayers -40 47 1 46 false @e[type=armor_stand,name=NewNTChest]
 execute as @e[type=armor_stand,name=NewNTChest,x=-59,y=220,z=1,dx=38,dy=34,dz=94,nbt={OnGround:1b}] at @s if block ~ ~ ~ air run data merge entity @s {CustomName:"\"TChest\""}
-spreadplayers 40 47 1 46 false @e[type=armor_stand,name=NewPTChest]
 execute as @e[type=armor_stand,name=NewPTChest,x=21,y=220,z=0,dx=96,dy=34,dz=96,nbt={OnGround:1b}] at @s if block ~ ~ ~ air run data merge entity @s {CustomName:"\"TChest\""}
+
+spreadplayers -40 47 1 46 false @e[type=armor_stand,name=NewNTChest,nbt={OnGround:1b}]
+spreadplayers 40 47 1 46 false @e[type=armor_stand,name=NewPTChest,nbt={OnGround:1b}]
 
 # See if we've used all the treasure items. '
 execute unless entity @e[type=armor_stand,name=Treasure] as @e[type=armor_stand,name=TreasureCD] run data merge entity @s {CustomName:"\"Treasure\""}
@@ -158,3 +159,6 @@ scoreboard players operation Time Info = Time Time
 scoreboard players operation SpawnSafety Info = SpawnSafety Time
 scoreboard players reset @a[team=!none,gamemode=spectator] Info
 execute as @a[gamemode=survival] run scoreboard players operation @s Info = @s Health
+
+# Remove ready check helmets
+clear @a minecraft:leather_helmet{display:{Name:"\"Ready\""}}
