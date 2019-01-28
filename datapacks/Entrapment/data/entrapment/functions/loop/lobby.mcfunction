@@ -26,7 +26,7 @@ execute at @e[type=armor_stand,name=JoinBlue] run team join blue @p[distance=..4
 
 # Move everyone to adventure mode
 gamemode adventure @a[gamemode=survival]
-gamemode adventure @a[gamemode=spectator]
+#gamemode adventure @a[gamemode=spectator]
 
 # Clear inventories
 clear @a[gamemode=adventure]
