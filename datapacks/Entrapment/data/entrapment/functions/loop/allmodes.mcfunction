@@ -22,10 +22,10 @@ kill @e[type=armor_stand,scores={Team=1..},tag=!Keep]
 tag @e[scores={Team=1..},tag=Keep] remove Keep
 
 # Make sure we don't lose the team AS
-execute unless entity @e[type=armor_stand,name=JoinRed] run summon armor_stand 1011 2 3 {CustomName:"\"JoinRed\"",Marker:1,NoGravity:1,Invisible:1}
+execute unless entity @e[type=armor_stand,name=JoinRed] run summon armor_stand 1011 2 3 {CustomName:'"JoinRed"',Marker:1,NoGravity:1,Invisible:1}
 scoreboard players set @e[type=armor_stand,name=JoinRed] Team 1
 
-execute unless entity @e[type=armor_stand,name=JoinBlue] run summon armor_stand 1011 2 2 {CustomName:"\"JoinBlue\"",Marker:1,NoGravity:1,Invisible:1}
+execute unless entity @e[type=armor_stand,name=JoinBlue] run summon armor_stand 1011 2 2 {CustomName:'"JoinBlue"',Marker:1,NoGravity:1,Invisible:1}
 scoreboard players set @e[type=armor_stand,name=JoinBlue] Team 2
 
 # State loop function calls

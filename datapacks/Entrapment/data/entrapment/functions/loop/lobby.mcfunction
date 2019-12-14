@@ -26,10 +26,11 @@ execute at @e[type=armor_stand,name=JoinBlue] run team join blue @p[distance=..4
 
 # Move everyone to adventure mode
 gamemode adventure @a[gamemode=survival]
-gamemode adventure @a[gamemode=spectator]
+gamemode adventure @a[gamemode=spectator,name=!slicedlime]
 
 # Clear inventories
 clear @a[gamemode=adventure]
+function entrapment:lobby/clearenderchests
 
 # Reset player state
 effect give @a instant_health 3 1 true

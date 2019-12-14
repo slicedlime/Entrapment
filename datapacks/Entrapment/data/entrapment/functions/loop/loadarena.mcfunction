@@ -5,7 +5,7 @@ execute if score $Game Tick matches 1 positioned -27 221 1 run function entrapme
 execute if score $Game Tick matches 1 positioned 53 221 1 run function entrapment:arenas/prepare
 execute if score $Game Tick matches 1 positioned -59 221 33 run function entrapment:arenas/prepare
 execute if score $Game Tick matches 1 positioned 21 221 33 run function entrapment:arenas/prepare
-execute if score $Game Tick matches 1 positioned -27 221 1 run function entrapment:arenas/prepare
+execute if score $Game Tick matches 1 positioned -27 221 33 run function entrapment:arenas/prepare
 execute if score $Game Tick matches 1 positioned 53 221 33 run function entrapment:arenas/prepare
 execute if score $Game Tick matches 1 positioned -59 221 65 run function entrapment:arenas/prepare
 execute if score $Game Tick matches 1 positioned 21 221 65 run function entrapment:arenas/prepare

@@ -33,13 +33,13 @@ kill @e[type=minecraft:item,x=-48,y=230,z=-3,dx=96,dy=15,dz=6,nbt={Item:{id:"min
 kill @e[type=minecraft:item,x=-48,y=230,z=-3,dx=96,dy=15,dz=6,nbt={Item:{id:"minecraft:prismarine_crystals"}}]
 
 # Chests
-execute as @e[type=armor_stand,name=NewNTChest,x=-59,y=220,z=1,dx=38,dy=34,dz=94,nbt={OnGround:1b}] at @s if block ~ ~ ~ air run data merge entity @s {CustomName:"\"TChest\""}
-execute as @e[type=armor_stand,name=NewPTChest,x=21,y=220,z=0,dx=96,dy=34,dz=96,nbt={OnGround:1b}] at @s if block ~ ~ ~ air run data merge entity @s {CustomName:"\"TChest\""}
+execute as @e[type=armor_stand,name=NewNTChest,x=-59,y=220,z=1,dx=38,dy=34,dz=94,nbt={OnGround:1b}] at @s if block ~ ~ ~ air run data merge entity @s {CustomName:'"TChest"'}
+execute as @e[type=armor_stand,name=NewPTChest,x=21,y=220,z=0,dx=96,dy=34,dz=96,nbt={OnGround:1b}] at @s if block ~ ~ ~ air run data merge entity @s {CustomName:'"TChest"'}
 
 spreadplayers -40 47 1 46 false @e[type=armor_stand,name=NewNTChest,nbt={OnGround:1b}]
 spreadplayers 40 47 1 46 false @e[type=armor_stand,name=NewPTChest,nbt={OnGround:1b}]
 
-# See if we've used all the treasure items. '
+# See if we've used all the treasure items
 execute unless entity @e[type=armor_stand,tag=Treasure] as @e[type=armor_stand,tag=TreasureCD] run tag @s add Treasure
 execute as @e[type=armor_stand,tag=Treasure,tag=TreasureCD] run tag @s remove TreasureCD
 
@@ -77,6 +77,13 @@ execute if entity @e[type=armor_stand,name=Game,scores={Round=1,SpectatorLock=1}
 execute if entity @e[type=armor_stand,name=Game,scores={Round=2,SpectatorLock=1}] positioned 20 0 -10 run teleport @a[team=blue,gamemode=spectator,dx=42,dy=500,dz=110] -40 236 -8 0 0
 execute if entity @e[type=armor_stand,name=Game,scores={Round=1,SpectatorLock=1}] positioned -60 0 -10 run teleport @a[team=blue,gamemode=spectator,dx=42,dy=500,dz=110] 40 236 -8 0 0
 execute if entity @e[type=armor_stand,name=Game,scores={Round=2,SpectatorLock=1}] positioned -60 0 -10 run teleport @a[team=red,gamemode=spectator,dx=42,dy=500,dz=110] 40 236 -8 0 0
+
+# Locked on player mode:
+execute if entity @e[type=armor_stand,name=Game,scores={SpectatorLock=2}] run tag @a[gamemode=spectator] remove spectatingplayer
+execute if entity @e[type=armor_stand,name=Game,scores={SpectatorLock=2}] as @a[gamemode=spectator,team=red] at @s if entity @p[team=red,distance=..2,gamemode=survival] run tag @s add spectatingplayer
+execute if entity @e[type=armor_stand,name=Game,scores={SpectatorLock=2}] as @a[gamemode=spectator,team=blue] at @s if entity @p[team=blue,distance=..2,gamemode=survival] run tag @s add spectatingplayer
+execute if entity @e[type=armor_stand,name=Game,scores={SpectatorLock=2}] as @a[gamemode=spectator,tag=!spectatingplayer,team=red] at @s run spectate @p[team=red,gamemode=survival]
+execute if entity @e[type=armor_stand,name=Game,scores={SpectatorLock=2}] as @a[gamemode=spectator,tag=!spectatingplayer,team=blue] at @s run spectate @p[team=blue,gamemode=survival]
 
 # Tp players in wrong arena (reconnects)
 execute if entity @e[type=armor_stand,name=Game,scores={Round=1}] positioned 20 220 -10 run teleport @a[team=red,gamemode=survival,dx=42,dy=40,dz=110] -40 236 -8 0 0
@@ -155,6 +162,10 @@ fill -20 242 -1 -60 255 -1 air
 fill 20 242 97 60 255 97 air
 fill -20 242 97 -60 255 97 air
 
+# Make mobs persistent
+execute as @e[tag=!persistent] run data merge entity @s {PersistenceRequired:1b}
+tag @e[tag=!persistent] add persistent
+
 # Calculate info sidebar
 scoreboard players operation Time Info = Time Time
 scoreboard players operation SpawnSafety Info = SpawnSafety Time
@@ -162,4 +173,4 @@ scoreboard players reset @a[team=!none,gamemode=spectator] Info
 execute as @a[gamemode=survival] run scoreboard players operation @s Info = @s Health
 
 # Remove ready check helmets
-clear @a minecraft:leather_helmet{display:{Name:"\"Ready\""}}
+clear @a minecraft:leather_helmet{display:{Name:'"Ready"'}}

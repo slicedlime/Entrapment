@@ -30,8 +30,7 @@ scoreboard players reset @a[scores={NotPlaying=1}] NotPlaying
 scoreboard players reset * Selected
 scoreboard players set @e[name=Blank,type=armor_stand] Selected 1
 
-execute at @e[scores={Selected=1}] run data merge block ~ ~1 ~ {Text1:"{\"text\":\"Arena:\"}",Text3:"{\"text\":\"No Arena\",\"color\":\"blue\",\"clickEvent\":{\"action\":\"run_command\",\"value\":\"trigger Action set 1\"}}"}
-execute at @e[scores={Selected=1}] run clone ~ ~1 ~ ~ ~1 ~ 3 253 144 replace
+data merge block 3 253 144 {Text1:'{"text":"Arena:","color":"white"}',Text3:'{"text":"No Arena","color":"gold","clickEvent":{"action":"run_command","value":"trigger Action set 1"}}'}
 
 function entrapment:lobby/applypreview
 
