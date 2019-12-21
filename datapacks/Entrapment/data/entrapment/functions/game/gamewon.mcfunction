@@ -30,7 +30,7 @@ scoreboard players reset @a[scores={NotPlaying=1}] NotPlaying
 scoreboard players reset * Selected
 scoreboard players set @e[name=Blank,type=armor_stand] Selected 1
 
-data merge block 3 253 144 {Text1:'{"text":"Arena:","color":"white"}',Text3:'{"text":"No Arena","color":"gold","clickEvent":{"action":"run_command","value":"trigger Action set 1"}}'}
+data merge block 3 253 144 {Text1:'{"text":"Arena:","color":"white"}',Text3:'{"text":"No Arena","color":"gold","clickEvent":{"action":"run_command","value":"trigger Action set 1"}},Text4:''}
 
 function entrapment:lobby/applypreview
 
