@@ -14,6 +14,7 @@ scoreboard players reset * Deaths
 gamerule naturalRegeneration false
 time set day
 gamerule doDaylightCycle true
+weather rain 1
 
 # Set player state
 gamemode survival @a[team=!none]

@@ -1,3 +1,6 @@
+# Kill anything remaining from before
+execute if score $Game Tick matches 1 run tp @e[x=-72,y=210,z=-15,dx=144,dy=60,dz=120,type=!player] 0 -100 0
+
 # Set air to all the redstone block locations
 execute if score $Game Tick matches 1 positioned -59 221 1 run function entrapment:arenas/prepare
 execute if score $Game Tick matches 1 positioned 21 221 1 run function entrapment:arenas/prepare

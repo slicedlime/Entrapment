@@ -6,7 +6,7 @@ execute if entity @e[type=armor_stand,name=JoinRed,scores={Count=1..}] run tellr
 execute if entity @e[type=armor_stand,name=JoinBlue,scores={Count=1..}] run tellraw @a [{"text":"Team Lapis wins!","color":"blue"}]
 
 execute as @e[type=armor_stand,name=JoinRed,scores={Count=1..}] run scoreboard players add @a[team=red] Wins 1
-execute as @e[type=armor_stand,name=JoinBlue,scores={Count=1}] run scoreboard players add @a[team=blue] Wins 1
+execute as @e[type=armor_stand,name=JoinBlue,scores={Count=1..}] run scoreboard players add @a[team=blue] Wins 1
 
 # Cleanup
 team leave *

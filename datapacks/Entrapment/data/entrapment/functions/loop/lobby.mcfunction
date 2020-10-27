@@ -113,3 +113,6 @@ teleport @a[gamemode=adventure,scores={InLobby=0,HelpPos=0}] 0 251 117 0 0
 
 # Silence item frames
 execute as @e[type=item_frame] run data merge entity @s {Silent:1}
+
+# Set weather
+weather clear 10000
