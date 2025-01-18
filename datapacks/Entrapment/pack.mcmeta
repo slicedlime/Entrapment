@@ -1,6 +1,14 @@
 {
   "pack": {
-    "pack_format": 6,
+    "pack_format": 61,
     "description": "Data pack for Entrapment"
+  },
+  "filter": {
+    "block": [
+      {
+        "namespace": "minecraft",
+        "path": "advancement/.*"
+      }
+    ]
   }
 }

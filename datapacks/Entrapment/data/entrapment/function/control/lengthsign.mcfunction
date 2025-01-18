@@ -1,0 +1,2 @@
+# Sign for length, description
+$execute if entity @e[type=armor_stand,name=Game,scores={Length=$(length)}] run data merge block -1 252 144 {front_text:{messages:['{"text":"Round Length:","color":"white"}','{"text":""}','{"text":"$(description)","clickEvent":{"action":"run_command","value":"/trigger Action set 2"},"color":"gold"}','{"text":"($(length) min)","clickEvent":{"action":"run_command","value":"/trigger Action set 2"},"color":"gold"}']}}

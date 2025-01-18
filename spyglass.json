@@ -1,0 +1,5 @@
+{
+    "env": {
+        "useFilePolling":true
+    }
+}
